@@ -29,47 +29,16 @@
                                 <th>Status</th>
                             </tr>
                         </thead>
-                        <tfoot>
-                            <tr>
-                                <th>No.</th>
-                                <th>Nama</th>
-                                <th>Jenis Kelamin</th>
-                                <th>Status</th>
-                            </tr>
-                        </tfoot>
+                    
                         <tbody>
+                            @foreach($users as $index => $user)
                             <tr>
-                                <td>1</td>
-                                <td>Rahmat Ahmad</td>
-                                <td>Laki-laki</td>
-                                <td>
-                                    <button type="button" class="btn btn-outline-warning" data-toggle="modal" data-target="#"><i class="fas fa-edit"></i></button>
-                                    <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#"><i class="fas fa-info-circle"></i></button>
-                                    <form action="#" method="POST" style="display: inline-block;">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit" class="btn btn-outline-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus item ini?')">
-                                            <i class="fas fa-trash"></i>
-                                        </button>
-                                    </form>
-                                </td>
+                                <td>{{ $index + 1 }}</td>
+                                <td>{{ $user->name }}</td>
+                                <td>{{ $user->gender }}</td>
+                                <td>{{ $user->status }}</td>
                             </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>Pamungkas Anggit Trismala</td>
-                                <td>Laki-laki</td>
-                                <td>
-                                    <button type="button" class="btn btn-outline-warning" data-toggle="modal" data-target="#"><i class="fas fa-edit"></i></button>
-                                    <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#"><i class="fas fa-info-circle"></i></button>
-                                    <form action="#" method="POST" style="display: inline-block;">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit" class="btn btn-outline-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus item ini?')">
-                                            <i class="fas fa-trash"></i>
-                                        </button>
-                                    </form>
-                                </td>
-                            </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
